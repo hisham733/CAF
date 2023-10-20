@@ -1,0 +1,40 @@
+frappe.ui.form.on("Pass Quality Inspection", {
+    reference_name: function(frm) {
+        var reference_name = frm.doc.reference_name;
+
+        if (reference_name) {
+            console.log("Stock Entry selected: " + reference_name);
+
+            // Clear the existing items
+            frm.clear_table("items");
+
+            // Split the selected Stock Entry (assuming they are comma-separated)
+            var reference_names = reference_name.split(',');
+
+            // Loop through each selected Stock Entry
+            $.each(reference_names, function(index, wo) {
+                // Fetch items for each Stock Entry
+                frappe.model.with_doc("Stock Entry", wo.trim(), function() {
+                    var sourcedoc = frappe.get_doc("Stock Entry", wo.trim());
+                    console.log("Stock Entry document retrieved:", sourcedoc);
+
+                    // Loop through required_items and add them to the child table
+                    $.each(sourcedoc.items, function(idx, row) {
+                        console.log("Copying item:", row.item_code);
+
+                        var child = frappe.model.add_child(frm.doc, "item_quality", "items");
+                        child.item_code = row.item_code;
+                        child.item_name = row.item_name;
+                        // Add other fields you want to copy
+                    });
+
+                    // Commit the child table rows
+                    frm.script_manager.trigger("items", "re-draw");
+
+                    // Refresh the "items" child table
+                    frm.refresh_field("items");
+                });
+            });
+        }
+    }
+});

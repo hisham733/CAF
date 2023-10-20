@@ -1,0 +1,95 @@
+{
+ "_assign": "[]",
+ "creation": "2023-09-07 15:28:40.971070",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "item_name",
+  "condition",
+  "batch",
+  "temp",
+  "ph",
+  "remark"
+ ],
+ "fields": [
+  {
+   "bold": 1,
+   "fieldname": "item_code",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Item Code",
+   "print_hide": 1,
+   "print_width": "200px",
+   "width": "200px"
+  },
+  {
+   "bold": 1,
+   "columns": 2,
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Name",
+   "print_width": "150px",
+   "width": "150px"
+  },
+  {
+   "default": "Accept",
+   "fieldname": "condition",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Condition",
+   "options": "\nAccept\nReject",
+   "print_width": "150px",
+   "width": "150px"
+  },
+  {
+   "default": "Correct",
+   "fieldname": "batch",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Batch",
+   "options": "\nCorrect\nIncorrect",
+   "print_width": "75px",
+   "width": "75px"
+  },
+  {
+   "columns": 1,
+   "fieldname": "temp",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Temp."
+  },
+  {
+   "columns": 1,
+   "fieldname": "ph",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "PH",
+   "print_width": "100px",
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Remark",
+   "print_width": "150px",
+   "width": "150px"
+  }
+ ],
+ "istable": 1,
+ "modified": "2023-09-15 17:08:06.323718",
+ "modified_by": "Administrator",
+ "module": "Stock",
+ "name": "item_quality",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
